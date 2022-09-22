@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: jinmaotower
+  name: jinmaotower
+  namespace: devices
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jinmaotower
+  template:
+    metadata:
+      labels:
+        app: jinmaotower
+    spec:
+      containers:
+      - image: mock-device:v0.0.1
+        name: jinmaotower
+        ports:
+        - containerPort: 30001
+        env:
+        - name: PORT
+          value: "30001"
+        - name: PEOPLEBASE
+          value: "100"
+        - name: PEOPLEINTERVAL
+          value: "10"
+        - name: POWERBASE
+          value: "3000001"
+        - name: POWERINTERVAL
+          value: "3000001"
+        - name: LONGITUDE
+          value: "E121.50109"
+        - name: LATITUDE
+          value: "N31.23691"
+        - name: HEIGHT
+          value: "420.5"

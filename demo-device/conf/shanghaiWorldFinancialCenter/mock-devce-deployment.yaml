@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: shanghaiworldfinancialcenter
+  name: shanghaiworldfinancialcenter
+  namespace: devices
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shanghaiworldfinancialcenter
+  template:
+    metadata:
+      labels:
+        app: shanghaiworldfinancialcenter
+    spec:
+      containers:
+      - image: mock-device:v0.0.1
+        name: shanghaiworldfinancialcenter
+        ports:
+        - containerPort: 30001
+        env:
+        - name: PORT
+          value: "30001"
+        - name: PEOPLEBASE
+          value: "160"
+        - name: PEOPLEINTERVAL
+          value: "10"
+        - name: POWERBASE
+          value: "3000001"
+        - name: POWERINTERVAL
+          value: "3000001"
+        - name: LONGITUDE
+          value: "E121.507761"
+        - name: LATITUDE
+          value: "N31.234339"
+        - name: HEIGHT
+          value: "492"

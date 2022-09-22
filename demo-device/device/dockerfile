@@ -1,0 +1,24 @@
+FROM --platform=$BUILDPLATFORM golang:1.18 as builder
+
+WORKDIR /shifu
+
+COPY demo-device/device .
+
+ARG TARGETOS
+ARG TARGETARCH
+
+RUN CGO_ENABLED=0 GOOS=$TARGETOS GOARCH=$TARGETARCH go build -a -o /output/mock-device main.go
+
+FROM gcr.io/distroless/static-debian11
+
+WORKDIR /
+
+COPY --from=builder /output/mock-device mock-device
+ENV PORT=3000
+ENV PEOPLEBASE=100
+ENV PEOPLEINTERVAL=10
+ENV POWERBASE=444444
+ENV POWERINTERVAL=12345
+
+USER 65532:65532
+ENTRYPOINT [ "/mock-device" ]

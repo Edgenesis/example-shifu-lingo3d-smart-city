@@ -1,0 +1,14 @@
+apiVersion: shifu.edgenesis.io/v1alpha1
+kind: EdgeDevice
+metadata:
+  name: edgedevice-orientalpearltower
+  namespace: devices
+spec:
+  sku: orientalpearltower 
+  connection: Ethernet
+  address: orientalpearltower.devices.svc.cluster.local
+  protocol: HTTP
+  customMetadata:
+    Heigth: 468m
+    Longitude: E121.506377
+    Latitude: N31.245105

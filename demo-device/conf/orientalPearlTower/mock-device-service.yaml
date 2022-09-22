@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: orientalpearltower
+  name: orientalpearltower
+  namespace: devices
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 30001
+  selector:
+    app: orientalpearltower
+  type: LoadBalancer

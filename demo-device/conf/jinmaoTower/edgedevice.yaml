@@ -1,0 +1,14 @@
+apiVersion: shifu.edgenesis.io/v1alpha1
+kind: EdgeDevice
+metadata:
+  name: edgedevice-jinmaotower
+  namespace: devices
+spec:
+  sku: jinmaotower 
+  connection: Ethernet
+  address: jinmaotower.devices.svc.cluster.local
+  protocol: HTTP
+  customMetadata:
+    Heigth: 420.5m
+    Longitude: E121.50109
+    Latitude: N31.23691

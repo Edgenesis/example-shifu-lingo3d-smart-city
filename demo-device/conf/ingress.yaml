@@ -1,0 +1,46 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+  name: shifu-ingress
+  namespace: deviceshifu
+spec:
+  rules:
+  - http:
+      paths:
+      - pathType: Prefix
+        path: /smartcity(/|$)(.*)
+        backend:
+          service:
+            name: smartcity
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /jinmaotower(/|$)(.*)
+        backend:
+          service:
+            name: deviceshifu-jinmaotower
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /orientalpearltower(/|$)(.*)
+        backend:
+          service:
+            name: deviceshifu-orientalpearltower
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /shanghaiwfc(/|$)(.*)
+        backend:
+          service:
+            name: deviceshifu-shanghaiworldfinancialcenter
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /shanghaitower(/|$)(.*)
+        backend:
+          service:
+            name: deviceshifu-shanghaitower
+            port:
+              number: 80

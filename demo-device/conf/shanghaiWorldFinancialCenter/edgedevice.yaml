@@ -1,0 +1,14 @@
+apiVersion: shifu.edgenesis.io/v1alpha1
+kind: EdgeDevice
+metadata:
+  name: edgedevice-shanghaiworldfinancialcenter
+  namespace: devices
+spec:
+  sku: shanghaiworldfinancialcenter 
+  connection: Ethernet
+  address: shanghaiworldfinancialcenter.devices.svc.cluster.local
+  protocol: HTTP
+  customMetadata:
+    Heigth: 492m
+    Longitude: E121.507761
+    Latitude: N31.234339

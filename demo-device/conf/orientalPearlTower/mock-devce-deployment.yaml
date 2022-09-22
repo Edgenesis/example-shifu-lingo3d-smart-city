@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: orientalpearltower
+  name: orientalpearltower
+  namespace: devices
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: orientalpearltower
+  template:
+    metadata:
+      labels:
+        app: orientalpearltower
+    spec:
+      containers:
+      - image: mock-device:v0.0.1
+        name: orientalpearltower
+        ports:
+        - containerPort: 30001
+        env:
+        - name: PORT
+          value: "30001"
+        - name: PEOPLEBASE
+          value: "80"
+        - name: PEOPLEINTERVAL
+          value: "10"
+        - name: POWERBASE
+          value: "3000001"
+        - name: POWERINTERVAL
+          value: "3000001"
+        - name: LONGITUDE
+          value: "E121.506377"
+        - name: LATITUDE
+          value: "N31.245105"
+        - name: HEIGHT
+          value: "468"

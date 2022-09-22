@@ -1,0 +1,14 @@
+apiVersion: shifu.edgenesis.io/v1alpha1
+kind: EdgeDevice
+metadata:
+  name: edgedevice-shanghaitower
+  namespace: devices
+spec:
+  sku: shanghaitower 
+  connection: Ethernet
+  address: shanghaitower.devices.svc.cluster.local
+  protocol: HTTP
+  customMetadata:
+    Heigth: 632m
+    Longitude: E121.505276
+    Latitude: N31.234188

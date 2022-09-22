@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: shanghaitower
+  name: shanghaitower
+  namespace: devices
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shanghaitower
+  template:
+    metadata:
+      labels:
+        app: shanghaitower
+    spec:
+      containers:
+      - image: mock-device:v0.0.1
+        name: shanghaitower
+        ports:
+        - containerPort: 30001
+        env:
+        - name: PORT
+          value: "30001"
+        - name: PEOPLEBASE
+          value: "130"
+        - name: PEOPLEINTERVAL
+          value: "10"
+        - name: POWERBASE
+          value: "3000001"
+        - name: POWERINTERVAL
+          value: "3000001"
+        - name: LONGITUDE
+          value: "E121.505276"
+        - name: LATITUDE
+          value: "N31.234188"
+        - name: HEIGHT
+          value: "632"

@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configmap-orientalpearltower
+  namespace: deviceshifu
+data:
+  driverProperties: |
+    driverSku: orientalPearlTower
+    driverImage: null
+  instructions: |
+    instructions:
+      alive:
+      cur_power:
+      num_people:
+      coordinate:
+      height:
+  telemetries: |
+    telemetries:
+      health:
+        properties:
+          instruction: alive
+    telemetrySettings:

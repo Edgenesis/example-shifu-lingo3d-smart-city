@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: shanghaitower
+  name: shanghaitower
+  namespace: devices
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 30001
+  selector:
+    app: shanghaitower
+  type: LoadBalancer

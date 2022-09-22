@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: smartcity
+  name: smartcity
+  namespace: deviceshifu
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: smartcity
+  template:
+    metadata:
+      labels:
+        app: smartcity
+    spec:
+      containers:
+      - image: smartcity:v0.0.1
+        name: smartcity
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: smartcity
+  name: smartcity
+  namespace: deviceshifu
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: smartcity
+  type: LoadBalancer
+
