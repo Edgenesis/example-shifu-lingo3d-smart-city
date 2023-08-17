@@ -3,7 +3,7 @@
 ## Step1: Bring up *Kind*:
 
 ```bash
-cat <<EOF | kind create cluster --image=kindest/node:v1.24.0 --config=-
+cat <<EOF | kind create cluster --config=-
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
 nodes:
