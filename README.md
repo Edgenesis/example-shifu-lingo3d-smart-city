@@ -90,3 +90,10 @@ shzxds -.- shifu2 -.- frontend
 dfmzt -.- shifu3 -.- frontend
 shhqjrzx -.-shifu4 -.- frontend
 ```
+# Challenge
+## Add the temperature and humidity from [shifu-tdengine-demo](https://github.com/Edgenesis/shifu-tdengine-demo) to the building information.
+### 1. Refer to the configuration in `/demo-device/conf/ingress.yaml`, and add the sensor service
+You can use `/sensor` to access the temperature and humidity service. 
+
+### 2.Change `/smartCity/src/components/MapCamera.vue`: 
+Add url,Temperature,Humidity and function.
