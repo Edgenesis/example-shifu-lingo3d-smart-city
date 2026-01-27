@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/smartcity/(.*)", "destination": "/$1" },
+    { "source": "/smartcity", "destination": "/" }
+  ]
+}
