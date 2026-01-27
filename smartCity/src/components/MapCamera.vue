@@ -16,7 +16,7 @@ const props = defineProps({
     required: true
   }
 })
-const host = 'http://localhost'
+const host = import.meta.env.VITE_API_HOST || 'http://localhost'
 const buildingMessages = reactive({
   Height: '',
   Coordinate: '',
