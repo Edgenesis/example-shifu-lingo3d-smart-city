@@ -35,25 +35,33 @@ const buildingKey: keyTrans = {
 
 const firstPost = (name: string) => {
   const url = `${host}/${name}`
-  fetch(`${url}/height`)
+  fetch(`${url}/height`,{
+    mode:"no-cors"
+  })
     .then(response => response.text())
     .then(json => {
       console.log(json)
       buildingMessages.Height = json
     })
-  fetch(`${url}/coordinate`)
+  fetch(`${url}/coordinate`,{
+    mode:"no-cors"
+  })
     .then(response => response.text())
     .then(json => {
       console.log(json)
       buildingMessages.Coordinate = json
     })
-  fetch(`${url}/cur_power`)
+  fetch(`${url}/cur_power`,{
+    mode:"no-cors"
+  })
     .then(response => response.text())
     .then(json => {
       console.log(json)
       buildingMessages.curPower = json
     })
-  fetch(`${url}/num_people`)
+  fetch(`${url}/num_people`,{
+    mode:"no-cors"
+  })
     .then(response => response.text())
     .then(json => {
       console.log(json)
@@ -68,13 +76,17 @@ const steadyPost = (name: string) => {
       window.clearInterval(timer)
       timer = undefined
     }
-    fetch(`${url}/cur_power`)
+    fetch(`${url}/cur_power`,{
+    mode:"no-cors"
+  })
       .then(response => response.text())
       .then(json => {
         console.log(json)
         buildingMessages.curPower = json
       })
-    fetch(`${url}/num_people`)
+    fetch(`${url}/num_people`,{
+    mode:"no-cors"
+  })
       .then(response => response.text())
       .then(json => {
         console.log(json)

@@ -46,6 +46,10 @@ func init() {
 	}
 }
 
+func enableCors(w *http.ResponseWriter) {
+	(*w).Header().Set("Access-Control-Allow-Origin", "*")
+}
+
 func main() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/num_people", GetNumberofPeople)
@@ -58,30 +62,35 @@ func main() {
 }
 
 func Empty(w http.ResponseWriter, r *http.Request) {
+	enableCors(&w)
 	log.Println("handler empty")
 	fmt.Fprintf(w, "alive")
 	w.WriteHeader(http.StatusOK)
 }
 
 func GetNumberofPeople(w http.ResponseWriter, r *http.Request) {
+	enableCors(&w)
 	log.Println("handler num_people")
 	fmt.Fprintf(w, "%d人", rand.Intn(numInterval)+numBase)
 	w.WriteHeader(http.StatusOK)
 }
 
 func GetCurrentPower(w http.ResponseWriter, r *http.Request) {
+	enableCors(&w)
 	log.Println("handler cur_power")
 	fmt.Fprintf(w, "%dkW", rand.Intn(powerInterval)+powerBase)
 	w.WriteHeader(http.StatusOK)
 }
 
 func GetCoordinate(w http.ResponseWriter, r *http.Request) {
+	enableCors(&w)
 	log.Println("handler coordinate")
 	fmt.Fprintf(w, "Longitude: %v°, Latitude: %v°", buildingLongitude, buildingLatitude)
 	w.WriteHeader(http.StatusOK)
 }
 
 func GetHeight(w http.ResponseWriter, r *http.Request) {
+	enableCors(&w)
 	log.Println("handler height")
 	fmt.Fprintf(w, "%vm", buildingHeight)
 	w.WriteHeader(http.StatusOK)
